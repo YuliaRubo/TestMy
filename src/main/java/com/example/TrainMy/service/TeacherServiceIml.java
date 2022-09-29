@@ -19,20 +19,8 @@ public class TeacherServiceIml implements TeacherService{
 
     @Override
     public TeacherDTO getTeacherById(int teacherId) {
-        return teacherDAO.getTeacherById(teacherId);
+        return teacherDAO.getTeacherWithCourseById(teacherId);
     }
-
-    @Override
-    public TeacherDTOOnly getTeacherByIdOnlyTeacher(int teacherId) {
-        return teacherDAO.getTeacherByIdOnlyTeacher(teacherId);
-    }
-
-    @Override
-    public TeacherDTO getTeacherByName(String name) {
-        return teacherDAO.getTeacherByName(name);
-    }
-
-
 
     @Override
     public void deleteById(int id) {

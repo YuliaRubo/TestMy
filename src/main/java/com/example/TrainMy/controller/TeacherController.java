@@ -18,17 +18,6 @@ public class TeacherController {
         this.teacherService = teacherService;
     }
 
-    @GetMapping("/getTeacherById/{id}")
-    TeacherDTOOnly getById(@PathVariable("id") Integer teacherId){
-    return  teacherService.getTeacherByIdOnlyTeacher(teacherId);
-    }
-
-
-    @GetMapping("/getTeacherByName/{name}")
-    TeacherDTO getTeacherByName(@PathVariable("name") String lastNameTeacher){
-        return teacherService.getTeacherByName(lastNameTeacher);
-    }
-
     @GetMapping("/getTeacherByIdWithCourse/{id}")
     TeacherDTO getByIdWC(@PathVariable("id") Integer teacherId){
         return teacherService.getTeacherById(teacherId);
