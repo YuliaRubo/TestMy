@@ -73,7 +73,6 @@ public class TeacherDAOImpl implements TeacherDAO{
     }
 
 
-
     @Override
     public void insertTeacher(TeacherDTO user) {
 
