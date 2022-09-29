@@ -24,7 +24,7 @@ public class UserDAOImpl implements UserDAO{
     public final String GET_ID = "SELECT *  FROM STUDENT WHERE student_id=:student_id";
     public final String GET_NAME = "SELECT *  FROM STUDENT WHERE first_name=:first_name";
     public final String GET_ALL = "select * from student";
-    public final String INSERT_TO_TABLE = "insert into Students (age, first_name, last_name) values (:age, :first_name, :last_name) ";
+    public final String INSERT_TO_TABLE = "insert into STUDENT (age, first_name, last_name) values (:age, :first_name, :last_name)";
     public final String DELETE_BY_ID = "DELETE  FROM STUDENT WHERE student_id=:student_id";
     public final String UPDATE_BY_NANE = "UPDATE STUDENT SET first_name = :first_name where student_id=:student_id";
 
@@ -50,7 +50,7 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public void deleteById(Integer studentId) {
+    public void deleteById(int studentId) {
         int status =namedParameterJdbcTemplate.update(DELETE_BY_ID, new MapSqlParameterSource("student_id",  studentId));
         if(status != 0){
             System.out.println("User data deleted for ID " + studentId);
@@ -71,6 +71,7 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public void update(UserDTO userDTO) {
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
+                .addValue("student_id", userDTO.getStudentId())
                 .addValue("first_name", userDTO.getFirstNameStudent())
                 .addValue("last_name", userDTO.getLastNameStudent())
                 .addValue("age", userDTO.getAge());

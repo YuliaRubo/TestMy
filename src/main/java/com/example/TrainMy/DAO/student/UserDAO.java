@@ -9,7 +9,7 @@ public interface UserDAO {
     UserDTO getUserById(int studentId);
     UserDTO getUserByName(String name);
     List<UserDTO> getAllUser();
-    void deleteById(Integer id);
+    void deleteById(int id);
     void insertUser(UserDTO user);
     void update(UserDTO userDTO);
 }
