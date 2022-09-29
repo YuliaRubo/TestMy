@@ -39,13 +39,14 @@ public class UserController {
         userService.deleteById(studentId);
     }
 
+
     @PostMapping ("/insert")
     public void updateAndSave(@RequestBody UserDTO user){
         userService.insertUser(user);
     }
 
-    @PostMapping("/update/{id}")
-    public void update(@PathParam("id") int id, UserDTO user){
+    @PutMapping("/update")
+    public void update(@RequestBody UserDTO user){
         userService.update(user);
     }
 }

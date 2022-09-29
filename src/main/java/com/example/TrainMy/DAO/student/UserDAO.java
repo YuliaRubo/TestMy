@@ -1,7 +1,6 @@
-package com.example.TrainMy.DAO;
+package com.example.TrainMy.DAO.student;
 
 import com.example.TrainMy.DTO.UserDTO;
-import org.apache.catalina.User;
 
 import java.util.List;
 

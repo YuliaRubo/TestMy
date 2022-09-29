@@ -20,6 +20,9 @@ public class RowMapperUser implements RowMapper<UserDTO> {
 
         return user;
     }
+
+
+
 //    public UserDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 //        UserDTO user = new UserDTO();
 //        while (rs.next()) {

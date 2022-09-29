@@ -1,2 +1,16 @@
-package com.example.TrainMy.service;public interface TeacherService {
+package com.example.TrainMy.service;
+
+import com.example.TrainMy.DTO.TeacherDTO;
+import com.example.TrainMy.DTO.TeacherDTOOnly;
+
+import java.util.List;
+
+public interface TeacherService {
+    TeacherDTO getTeacherById(int teacherId);
+    TeacherDTOOnly getTeacherByIdOnlyTeacher(int teacherId);
+    TeacherDTO getTeacherByName(String name);
+    void deleteById(int id);
+    void insertTeacher(TeacherDTO user);
+    void update(TeacherDTO teacherDTO);
 }
+

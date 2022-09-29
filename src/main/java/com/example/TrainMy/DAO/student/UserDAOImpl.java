@@ -1,8 +1,7 @@
-package com.example.TrainMy.DAO;
+package com.example.TrainMy.DAO.student;
 
 import com.example.TrainMy.DTO.UserDTO;
 import com.example.TrainMy.rowMapper.RowMapperUser;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -51,7 +50,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void deleteById(int studentId) {
-        int status =namedParameterJdbcTemplate.update(DELETE_BY_ID, new MapSqlParameterSource("student_id",  studentId));
+        int status = namedParameterJdbcTemplate.update(DELETE_BY_ID, new MapSqlParameterSource("student_id",  studentId));
         if(status != 0){
             System.out.println("User data deleted for ID " + studentId);
         }else{
