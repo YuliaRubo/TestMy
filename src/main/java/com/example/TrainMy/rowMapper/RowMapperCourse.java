@@ -10,7 +10,7 @@ public class RowMapperCourse implements RowMapper<CourseDTO> {
     @Override
     public CourseDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
         CourseDTO courseDTO = new CourseDTO();
-        courseDTO.setCourseID(rs.getInt("course_id"));
+        courseDTO.setCourseId(rs.getInt("course_id"));
         courseDTO.setNameCourse(rs.getString("name_course"));
         return courseDTO;
     }

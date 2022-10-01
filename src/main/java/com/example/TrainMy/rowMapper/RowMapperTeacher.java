@@ -22,7 +22,7 @@ public class RowMapperTeacher implements ResultSetExtractor<TeacherDTO> {
                 teacherDTO.setLastNameTeacher(rs.getString("last_name"));
             }
             CourseDTO courseDTO = new CourseDTO();
-            courseDTO.setCourseID(rs.getInt("course_id"));
+            courseDTO.setCourseId(rs.getInt("course_id"));
             courseDTO.setNameCourse(rs.getString("name_course"));
             List<CourseDTO> courseDTOList = teacherDTO.getCourseList();
             courseDTOList.add(courseDTO);

@@ -1,17 +1,18 @@
 package com.example.TrainMy.DTO;
 
-public class CourseDTO {
+public class CourseWithTeacherDTO {
 
     private int courseId;
     private String nameCourse;
+    private int teacherId;
 
-
-    public CourseDTO() {
+    public CourseWithTeacherDTO() {
     }
 
-    public CourseDTO(int courseId, String nameCourse) {
+    public CourseWithTeacherDTO(int courseId, String nameCourse, int teacherId) {
         this.courseId = courseId;
         this.nameCourse = nameCourse;
+        this.teacherId = teacherId;
     }
 
     public int getCourseId() {
@@ -30,11 +31,20 @@ public class CourseDTO {
         this.nameCourse = nameCourse;
     }
 
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
+    }
+
     @Override
     public String toString() {
-        return "CourseDTO{" +
+        return "CourseWithTeacherDTO{" +
                 "courseId=" + courseId +
                 ", nameCourse='" + nameCourse + '\'' +
+                ", teacherId=" + teacherId +
                 '}';
     }
 }

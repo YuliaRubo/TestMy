@@ -25,6 +25,6 @@ public class TeacherController {
 
     @GetMapping("/deleteTeacher/{id}")
     void deleteById(@PathVariable("id") int teacherId){
-        teacherService.deleteById(teacherId);
+        teacherService.deleteByIdTeacher(teacherId);
     }
 }

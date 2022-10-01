@@ -42,21 +42,13 @@ public class TeacherDAOImpl implements TeacherDAO{
         return namedParameterJdbcTemplate.query(GET_TEACHER_WITH_COURSE, param,new RowMapperTeacher());
     }
 
-//    @Override
-//    public void deleteById(int teacherId) {
-//        Map<String,Object> param = new HashMap<>();
-//        param.put("teacher_id", teacherId);
-//        namedParameterJdbcTemplate.update(DELETE_TEACHER_BY_ID, param);
-//    }
     @Override
     public void deleteById(int teacherId) {
-        int status = namedParameterJdbcTemplate.update(DELETE_TEACHER_BY_ID, new MapSqlParameterSource("teacher_id",  teacherId));
-        if(status != 0){
-            System.out.println("User data deleted for ID " + teacherId);
-        }else{
-            System.out.println("No User found with ID " + teacherId);
-        }
+        Map<String,Object> param = new HashMap<>();
+        param.put("teacher_id", teacherId);
+        namedParameterJdbcTemplate.update(DELETE_TEACHER_BY_ID, param);
     }
+
 
     @Override
     public void insertTeacher(TeacherDTO user) {

@@ -1,5 +1,6 @@
 package com.example.TrainMy.service;
 
+import com.example.TrainMy.DAO.course.CourseDAO;
 import com.example.TrainMy.DAO.teacher.TeacherDAO;
 import com.example.TrainMy.DTO.TeacherDTO;
 import com.example.TrainMy.DTO.TeacherDTOOnly;
@@ -11,10 +12,12 @@ import java.util.List;
 @Service
 public class TeacherServiceIml implements TeacherService{
 
-    public  TeacherDAO teacherDAO;
+   private  TeacherDAO teacherDAO;
+   private  CourseDAO courseDAO;
     @Autowired
-    public TeacherServiceIml(TeacherDAO teacherDAO) {
+    public TeacherServiceIml(TeacherDAO teacherDAO, CourseDAO courseDAO) {
         this.teacherDAO = teacherDAO;
+        this.courseDAO = courseDAO;
     }
 
     @Override
@@ -23,9 +26,9 @@ public class TeacherServiceIml implements TeacherService{
     }
 
     @Override
-    public void deleteById(int id) {
-        teacherDAO.deleteById(id);
-
+    public void deleteByIdTeacher(int teacherId) {
+        courseDAO.delete(teacherId);
+        teacherDAO.deleteById(teacherId);
     }
 
     @Override
