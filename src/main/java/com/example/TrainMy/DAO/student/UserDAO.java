@@ -11,4 +11,6 @@ public interface UserDAO {
     void deleteById(int id);
     void insertUser(UserDTO user);
     void update(UserDTO userDTO);
+    List<UserDTO>getUsersByCourseId(int id);
+    void deleteStudentFromCourseByCourseId(int id);
 }

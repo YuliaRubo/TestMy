@@ -21,11 +21,12 @@ public class CourseController {
     CourseDTO getCourseById(@PathVariable("id")  Integer courseId){
        return courseService.getCourseById(courseId);
     }
+    @GetMapping("/deleteStudentFromCourse/{id}")
+    public void deleteStudentFromCourseByCourseId(@PathVariable("id") int courseId){
+        courseService.deleteStudentFromCourseByCourseId(courseId);
+    }
 
-//    @GetMapping("/deleteCourseByIdTeacher/{id}")
-//    void deleteByIdTeacher(@PathVariable("id") int teacherId){
-//        courseService.delete(teacherId);
-//    }
+
 
 
 }

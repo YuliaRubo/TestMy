@@ -26,7 +26,9 @@ public class UserDAOImpl implements UserDAO{
     public final String INSERT_TO_TABLE = "insert into STUDENT (age, first_name, last_name) values (:age, :first_name, :last_name)";
     public final String DELETE_BY_ID = "DELETE  FROM STUDENT WHERE student_id=:student_id";
     public final String UPDATE_BY_NANE = "UPDATE STUDENT SET first_name = :first_name where student_id=:student_id";
-
+    public final String GET_LIST_USERS_BY_COURSE_ID = "select * from student where student_id " +
+            " in (select student_id from student_and_course where course_id = :course_id)";
+    public final String DELETE_LIST_STUDENT_FROM_COURSE_BY_COURSE_ID = "delete from student_and_course where course_id = :course_id";
 
     @Override
     public UserDTO getUserById(int studentId) {
@@ -50,12 +52,15 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void deleteById(int studentId) {
-        int status = namedParameterJdbcTemplate.update(DELETE_BY_ID, new MapSqlParameterSource("student_id",  studentId));
-        if(status != 0){
-            System.out.println("User data deleted for ID " + studentId);
-        }else{
-            System.out.println("No User found with ID " + studentId);
-        }
+        Map<String, Object> param = new HashMap<>();
+        param.put("student_id", studentId);
+        int status = namedParameterJdbcTemplate.update(DELETE_BY_ID, param);
+//        int status = namedParameterJdbcTemplate.update(DELETE_BY_ID, new MapSqlParameterSource("student_id",  studentId));
+//        if(status != 0){
+//            System.out.println("User data deleted for ID " + studentId);
+//        }else{
+//            System.out.println("No User found with ID " + studentId);
+//        }
     }
 
     @Override
@@ -82,7 +87,21 @@ public class UserDAOImpl implements UserDAO{
         }
     }
 
+    @Override
+    public List<UserDTO> getUsersByCourseId(int id) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("course_id", id);
+        return namedParameterJdbcTemplate.query(GET_LIST_USERS_BY_COURSE_ID, params, new RowMapperUser());
     }
+
+    @Override
+    public void deleteStudentFromCourseByCourseId(int id) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("course_id", id);
+        namedParameterJdbcTemplate.update(DELETE_LIST_STUDENT_FROM_COURSE_BY_COURSE_ID, params);
+    }
+
+}
 
 
 //    @Override

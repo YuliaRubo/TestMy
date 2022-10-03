@@ -1,20 +1,32 @@
 package com.example.TrainMy.DTO;
 
+import java.util.List;
+
 public class UserDTO {
 
     private int studentId;
     private String firstNameStudent;
     private String lastNameStudent;
     private int age;
+    private List<String>courseNames;
 
     public UserDTO() {
     }
 
-    public UserDTO(int studentId, String firstNameStudent, String lastNameStudent, int age) {
+    public UserDTO(int studentId, String firstNameStudent, String lastNameStudent, int age, List<String> courseNames) {
         this.studentId = studentId;
         this.firstNameStudent = firstNameStudent;
         this.lastNameStudent = lastNameStudent;
         this.age = age;
+        this.courseNames = courseNames;
+    }
+
+    public List<String> getCourseNames() {
+        return courseNames;
+    }
+
+    public void setCourseNames(List<String> courseNames) {
+        this.courseNames = courseNames;
     }
 
     public int getStudentId() {
@@ -52,10 +64,11 @@ public class UserDTO {
     @Override
     public String toString() {
         return "UserDTO{" +
-                 studentId +
-                firstNameStudent + '\'' +
-                lastNameStudent + '\'' +
-                 + age +
+                "studentId=" + studentId +
+                ", firstNameStudent='" + firstNameStudent + '\'' +
+                ", lastNameStudent='" + lastNameStudent + '\'' +
+                ", age=" + age +
+                ", courseNames=" + courseNames +
                 '}';
     }
 }

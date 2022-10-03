@@ -1,8 +1,6 @@
 package com.example.TrainMy.DAO.teacher;
 
 import com.example.TrainMy.DTO.TeacherDTO;
-import com.example.TrainMy.DTO.TeacherDTOOnly;
-import com.example.TrainMy.DTO.UserDTO;
 
 import java.util.List;
 

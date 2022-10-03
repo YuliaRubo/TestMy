@@ -3,8 +3,6 @@ package com.example.TrainMy.service;
 import com.example.TrainMy.DAO.course.CourseDAO;
 import com.example.TrainMy.DAO.teacher.TeacherDAO;
 import com.example.TrainMy.DTO.TeacherDTO;
-import com.example.TrainMy.DTO.TeacherDTOOnly;
-import com.example.TrainMy.entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

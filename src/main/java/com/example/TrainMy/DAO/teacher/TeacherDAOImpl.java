@@ -1,9 +1,8 @@
 package com.example.TrainMy.DAO.teacher;
 
 import com.example.TrainMy.DTO.TeacherDTO;
-import com.example.TrainMy.DTO.TeacherDTOOnly;
+
 import com.example.TrainMy.rowMapper.RowMapperTeacher;
-import com.example.TrainMy.rowMapper.RowMapperTeacherOnly;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
