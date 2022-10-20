@@ -3,6 +3,8 @@ package com.example.TrainMy.service;
 import com.example.TrainMy.DAO.course.CourseDAO;
 import com.example.TrainMy.DAO.student.UserDAO;
 import com.example.TrainMy.DTO.CourseDTO;
+import com.example.TrainMy.DTO.CourseDTOInsert;
+import com.example.TrainMy.DTO.StudentGoToCourseDTOInsert;
 import com.example.TrainMy.DTO.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,11 @@ public class CourseServiceImpl implements CourseService{
     }
 
     @Override
+    public List<CourseDTO> getCourseByTeacherID(int teacherId) {
+        return null;
+    }
+
+    @Override
     public CourseDTO getCourseById(int courseId) {
        CourseDTO courseDTO = courseDAO.getCourseById(courseId);
        List<UserDTO> listUser = userDAO.getUsersByCourseId(courseId);
@@ -29,7 +36,7 @@ public class CourseServiceImpl implements CourseService{
 //       userDTOList.add("Lili");
 //       userDTOList.add("Rita");
         for(UserDTO d: listUser){
-            userDTOList.add(d.getLastNameStudent());
+            userDTOList.add(d.getLastNameStudent() + " " + d.getFirstNameStudent());
         }
      courseDTO.setUserNames(userDTOList);
         return courseDTO;
@@ -40,9 +47,20 @@ public class CourseServiceImpl implements CourseService{
         userDAO.deleteStudentFromCourseByCourseId(courseId);
     }
 
-//    @Override
-//    public void delete(int teacherId) {
-//        courseDAO.delete(teacherId);
+    @Override
+    public void insertCourse(CourseDTOInsert courseDTOInsert) {
+        courseDAO.insertCourse(courseDTOInsert);
+    }
 
-    //}
+    @Override
+    public void insertStudentToCourse(StudentGoToCourseDTOInsert studentGoToCourseDTOInsert) {
+        courseDAO.insertStudentToCourse(studentGoToCourseDTOInsert);
+    }
+
+    @Override
+    public void updateCourse(CourseDTOInsert courseDTO) {
+        courseDAO.updateCourse(courseDTO);
+    }
+
+
 }

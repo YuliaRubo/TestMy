@@ -1,16 +1,20 @@
 package com.example.TrainMy.service;
 
 import com.example.TrainMy.DTO.TeacherDTO;
+import com.example.TrainMy.DTO.TeacherDTOInsert;
+import com.example.TrainMy.DTO.TeacherWithListStringCourseDTO;
 
 
 import java.util.List;
 
 public interface TeacherService {
     TeacherDTO getTeacherById(int teacherId);
-    //TeacherDTOOnly getTeacherByIdOnlyTeacher(int teacherId);
-    //TeacherDTO getTeacherByName(String name);
     void deleteByIdTeacher(int teacherId);
-    void insertTeacher(TeacherDTO user);
-    void update(TeacherDTO teacherDTO);
+    void insertTeacher(TeacherDTOInsert teacherDTOInsert);
+    void updateTeacher(TeacherDTOInsert teacherDTOInsert);
+     List<TeacherDTO> getTeacherAll();
+     List<TeacherWithListStringCourseDTO> getTeacherAllList();
+
+
 }
 

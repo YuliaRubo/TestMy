@@ -9,14 +9,17 @@ public class CourseDTO {
     List<String> userNames;
 
 
+
     public CourseDTO() {
     }
+
 
     public CourseDTO(int courseId, String nameCourse, List<String> userNames) {
         this.courseId = courseId;
         this.nameCourse = nameCourse;
         this.userNames = userNames;
     }
+
 
     public int getCourseId() {
         return courseId;
@@ -42,7 +45,7 @@ public class CourseDTO {
         this.userNames = userNames;
     }
 
-    @Override
+
     public String toString() {
         return "CourseDTO{" +
                 "courseId=" + courseId +

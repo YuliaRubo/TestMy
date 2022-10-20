@@ -42,9 +42,19 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<UserDTO> getAllUserDTO() {
-        return userDAO.getAllUser();
+        List<UserDTO> listMy = userDAO.getAllUser();
+        for (UserDTO st : listMy) {
+            int studentId = st.getStudentId();
+            List<CourseDTO> courseDTOList = courseDAO.getCoursesByUserId(studentId);
+            List<String> listN = new ArrayList<>();
+            for (CourseDTO curs : courseDTOList) {
+                String name = curs.getNameCourse();
+                listN.add(name);
+            }
+            st.setCourseNames(listN);
+        }
+            return listMy;
     }
-
 
     @Override
     public void deleteById(int studentId) {

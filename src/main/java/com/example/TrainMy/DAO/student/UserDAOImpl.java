@@ -20,6 +20,7 @@ public class UserDAOImpl implements UserDAO{
     public UserDAOImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
+
     public final String GET_ID = "SELECT *  FROM STUDENT WHERE student_id=:student_id";
     public final String GET_NAME = "SELECT *  FROM STUDENT WHERE first_name=:first_name";
     public final String GET_ALL = "select * from student";
@@ -29,6 +30,10 @@ public class UserDAOImpl implements UserDAO{
     public final String GET_LIST_USERS_BY_COURSE_ID = "select * from student where student_id " +
             " in (select student_id from student_and_course where course_id = :course_id)";
     public final String DELETE_LIST_STUDENT_FROM_COURSE_BY_COURSE_ID = "delete from student_and_course where course_id = :course_id";
+    public final  String GET_TEACHER_WITH_COURSE_AND_STUDENT = "Select * from TEACHER where TEACHER_ID  in" +
+            "(select  TEACHERID  from COURSE where COURSE_ID in" +
+            "(select COURSE_ID  from STUDENT_AND_COURSE where STUDENT_ID  =3))";
+
 
     @Override
     public UserDTO getUserById(int studentId) {

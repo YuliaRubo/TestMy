@@ -11,24 +11,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RowMapperTeacher implements ResultSetExtractor<TeacherDTO> {
+public class RowMapperTeacher implements RowMapper<TeacherDTO> {
     @Override
-    public TeacherDTO extractData(ResultSet rs) throws SQLException, DataAccessException {
-        TeacherDTO teacherDTO = new TeacherDTO();
-        while (rs.next()) {
-            if (teacherDTO.getTeacherId() == 0) {
+    public TeacherDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                TeacherDTO teacherDTO = new TeacherDTO();
                 teacherDTO.setTeacherId(rs.getInt("teacher_id"));
                 teacherDTO.setFirstNameTeacher(rs.getString("first_name"));
                 teacherDTO.setLastNameTeacher(rs.getString("last_name"));
-            }
-            CourseDTO courseDTO = new CourseDTO();
-            courseDTO.setCourseId(rs.getInt("course_id"));
-            courseDTO.setNameCourse(rs.getString("name_course"));
-            List<CourseDTO> courseDTOList = teacherDTO.getCourseList();
-            courseDTOList.add(courseDTO);
-            teacherDTO.setCourseList(courseDTOList);
-        }
         return teacherDTO;
-
     }
 }

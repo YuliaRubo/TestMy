@@ -13,16 +13,18 @@ public class TeacherDTO {
     List<CourseDTO> courseList;
 
 
+
     public TeacherDTO() {
         courseList=new ArrayList<>();
     }
 
-    public TeacherDTO(int teacherId, String firstNameTeacher, String lastNameTeacher) {
+    public TeacherDTO(int teacherId, String firstNameTeacher, String lastNameTeacher, List<CourseDTO> courseList) {
         this.teacherId = teacherId;
         this.firstNameTeacher = firstNameTeacher;
         this.lastNameTeacher = lastNameTeacher;
-
+        this.courseList = courseList;
     }
+
 
     public int getTeacherId() {
         return teacherId;
